@@ -1,4 +1,3 @@
-
 (defun helm-ido-like-activate-helm-modes ()
   (require 'helm-config)
   (helm-mode 1)
