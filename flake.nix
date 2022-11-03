@@ -33,7 +33,7 @@
     outputs = inputs@{ self, flake-utils, settings, ... }: with builtins; with settings.lib; with flake-utils.lib; settings.mkOutputs {
         inherit inputs;
         type = "emacs-nox";
-        pname = "helm-ido-like-guide";
+        pname = "helm-ido-like";
         callPackage = { emacs, pname }: emacs.pkgs.trivialBuild rec {
             inherit pname;
             src = ./.;
