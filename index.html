@@ -1,50 +1,144 @@
-* Helm I do like. Yes...
-:PROPERTIES:
-:SUMMARY: Configuration guide for the helm package of Emacs
-:END:
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-11-14 Mon 09:57 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>&lrm;</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Jeet Ray" />
+<link rel="stylesheet" type="text/css" href="https://combinatronics.io/sylvorg/settings/main/src/styles/primary/syvl.css" />
+<link rel="icon" href="https://combinatronics.io/sylvorg/settings/main/src/icons/favicons/shiny-zigzagoon-galar.ico" sizes="any" />
+<link rel="icon" href="https://combinatronics.io/sylvorg/settings/main/src/icons/favicons/shiny-zigzagoon-galar.svg" />
+<link rel="manifest" href="https://combinatronics.io/sylvorg/settings/main/manifest.json" />
+<link rel="stylesheet" type="text/css" href="https://combinatronics.io/sylvorg/settings/main/src/styles/highlight/paraiso-dark.min.css" />
+<script src="https://combinatronics.io/sylvorg/settings/main/src/scripts/highlight/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+<div class="header">
+<h1>We Are Syvlorg.</h1>
+<a href="">About Me</a>
+<a href="">About This Website</a>
+<a href="">About Syvlorg</a>
+<a href="https://resume.syvl.org">Résumé</a>
+<a href="https://index.syvl.org">Index</a>
+</div>
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orga32ef72">Helm I do like. Yes&#x2026;</a>
+<ul>
+<li><a href="#org281ea36">Screenshots</a></li>
+<li><a href="#org3faddf6">Installing helm and friends</a></li>
+<li><a href="#org32baa81">Initial setup</a></li>
+<li><a href="#orgc0c60bf">Appearance</a></li>
+<li><a href="#org3fe1e5a">File Navigation</a></li>
+<li><a href="#org67dd1f2">Improve Flx support</a></li>
+<li><a href="#org10b5dbe">Helm Adaptive</a></li>
+<li><a href="#orgf3f9103">Last Steps</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 
-[[./yoda.jpg]]
+<div id="outline-container-orga32ef72" class="outline-2">
+<h2 id="orga32ef72">Helm I do like. Yes&#x2026;</h2>
+<div class="outline-text-2" id="text-orga32ef72">
 
+<div id="org3748a7c" class="figure">
+<p><img src="./yoda.jpg" alt="yoda.jpg" />
+</p>
+</div>
+
+<p>
 This guide was intended for people which used ido in the past and wanted helm to
 behave more like ido (ido + flx-ido + ido-vertical-mode + smex). Now this guide inlcudes
 many snippets which are useful for helm usage in general and has become more of collection
 of configuration tips and recommended packages to improve helms default interface.
+</p>
 
+<p>
 For now the configuration snippets and packages will provide the following features for you:
+</p>
 
 
-- Always pop up at the bottom
-- Nice search through an overview of matches with helm-swoop
-- Input in header line and hide the minibuffer
-- Show helm source headers only when necessary
-- No mode-lines above the helm buffer
-- Flx support with gc adjustment to improve speed.
-- DEL and RETURN for file navigation like in ido
-- Remove the dots for current and parent directory in helm file navigation in non directory selections
-- Smex support for =helm-M-x= , to adjust search results for recent and most frequent used commands
-- Remember last candidates for more sources with =helm-adaptive= (Not recommended for now)
+<ul class="org-ul">
+<li>Always pop up at the bottom</li>
+<li>Nice search through an overview of matches with helm-swoop</li>
+<li>Input in header line and hide the minibuffer</li>
+<li>Show helm source headers only when necessary</li>
+<li>No mode-lines above the helm buffer</li>
+<li>Flx support with gc adjustment to improve speed.</li>
+<li>DEL and RETURN for file navigation like in ido</li>
+<li>Remove the dots for current and parent directory in helm file navigation in non directory selections</li>
+<li>Smex support for <code>helm-M-x</code> , to adjust search results for recent and most frequent used commands</li>
+<li>Remember last candidates for more sources with <code>helm-adaptive</code> (Not recommended for now)</li>
+</ul>
 
-For more great helm-hacks have a look at [[https://github.com/cute-jumper/helm-ext][helm-ext]].
+<p>
+For more great helm-hacks have a look at <a href="https://github.com/cute-jumper/helm-ext">helm-ext</a>.
+</p>
 
-*NOTE*
+<p>
+<b>NOTE</b>
+</p>
 
+<p>
 This is a work in progress. If you encounter any problems let me know.
 Some of this is my own work, but most is based on work of others that I summarized in this tutorial.
 Everyone has his own opinions what is considered an improvement because of that I have splitted
 the guide into parts where each snippet should be independent of others, so you can just pick what you like.
+</p>
+</div>
 
-** Screenshots
+<div id="outline-container-org281ea36" class="outline-3">
+<h3 id="org281ea36">Screenshots</h3>
+<div class="outline-text-3" id="text-org281ea36">
+<p>
+<img src="./screenshot.png" alt="screenshot.png" />
+Theme: <a href="https://github.com/edran/hc-zenburn-emacs">hc-zenburn</a> with some adjustments.
+</p>
+</div>
+</div>
 
-[[./screenshot.png]]
-Theme: [[https://github.com/edran/hc-zenburn-emacs][hc-zenburn]] with some adjustments.
-
-** Installing helm and friends
-
+<div id="outline-container-org3faddf6" class="outline-3">
+<h3 id="org3faddf6">Installing helm and friends</h3>
+<div class="outline-text-3" id="text-org3faddf6">
+<p>
 If you haven't already go and install helm, helm-swoop, helm-flx, helm-fuzzier, smex and helm-smex. You can do it
 quickly by evaluating the following snippet.
+</p>
 
-#+BEGIN_SRC emacs-lisp
-  (require 'package)
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">  (require 'package)
   ;; Note that certificate verfication in Emacs 24.4 needs some
   ;; manual adjustments if you want to be really secure.
   ;; Read this for more info on this: https://glyph.twistedmatrix.com/2015/11/editor-malware.html
@@ -52,34 +146,49 @@ quickly by evaluating the following snippet.
   (package-refresh-contents)
   (mapcar #'(lambda (package) (unless (package-installed-p package) (package-install package)))
           '(helm helm-swoop helm-flx helm-fuzzier smex helm-smex dash))
-#+END_SRC
+</code></pre>
+</div>
 
 
-Now either follow this guide or jump to [[*Last Steps][Last Steps]] if you want see how to activate
+<p>
+Now either follow this guide or jump to <a href="#orgf3f9103">Last Steps</a> if you want see how to activate
 all the snippets provided by this guide at once.
+</p>
+</div>
+</div>
 
-** Initial setup
-
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-(defun helm-ido-like-activate-helm-modes ()
+<div id="outline-container-org32baa81" class="outline-3">
+<h3 id="org32baa81">Initial setup</h3>
+<div class="outline-text-3" id="text-org32baa81">
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">(defun helm-ido-like-activate-helm-modes ()
   (require 'helm-config)
   (helm-mode 1)
   (helm-flx-mode 1)
   (helm-fuzzier-mode 1))
-#+END_SRC
+</code></pre>
+</div>
 
+<p>
 Now don't forget to bind keys for the helm-smex commands:
-#+BEGIN_SRC emacs-lisp
-(global-set-key [remap execute-extended-command] #'helm-smex)
+</p>
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">(global-set-key [remap execute-extended-command] #'helm-smex)
 (global-set-key (kbd "M-X") #'helm-smex-major-mode-commands)
-#+END_SRC
+</code></pre>
+</div>
+</div>
+</div>
 
-** Appearance
-
+<div id="outline-container-orgc0c60bf" class="outline-3">
+<h3 id="orgc0c60bf">Appearance</h3>
+<div class="outline-text-3" id="text-orgc0c60bf">
+<p>
 The following snippet will configure helm to always pop up at the bottom.
+</p>
 
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-(defun helm-ido-like-load-ido-like-bottom-buffer ()
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">(defun helm-ido-like-load-ido-like-bottom-buffer ()
   ;; popup helm-buffer at the bottom
   (setq helm-split-window-in-side-p t)
   (add-to-list 'display-buffer-alist
@@ -99,26 +208,33 @@ The following snippet will configure helm to always pop up at the bottom.
   ;; input in header line
   (setq helm-echo-input-in-header-line t)
   (add-hook 'helm-minibuffer-set-up-hook 'helm-hide-minibuffer-maybe))
-#+END_SRC
+</code></pre>
+</div>
 
+<p>
 With newer helm versions you can also use the following instead:
+</p>
 
-#+BEGIN_SRC
+<pre class="example">
 (with-eval-after-load 'helm
   (setq helm-always-two-windows nil)
   (setq helm-display-buffer-default-height 15)
   (setq helm-default-display-buffer-functions '(display-buffer-in-side-window)))
-#+END_SRC
+</pre>
 
 
+<p>
 The modelines above the helm buffer are not useful and hiding them will
 make helm look nicer in my opinion, too. You can do that with the following
 code.
+</p>
 
-[[http://emacs.stackexchange.com/a/15250/9198][Reference]]
+<p>
+<a href="http://emacs.stackexchange.com/a/15250/9198">Reference</a>
+</p>
 
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-(defvar helm-ido-like-bottom-buffers nil
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">(defvar helm-ido-like-bottom-buffers nil
   "List of bottom buffers before helm session started.
 Its element is a pair of `buffer-name' and `mode-line-format'.")
 
@@ -148,7 +264,7 @@ Its element is a pair of `buffer-name' and `mode-line-format'.")
     (setq helm-ido-like-bottom-buffers nil)))
 
 
-(defun helm-ido-like-helm-keyboard-quit-advice (orig-func &rest args)
+(defun helm-ido-like-helm-keyboard-quit-advice (orig-func &amp;rest args)
   (helm-ido-like-bottom-buffers-show-mode-line)
   (apply orig-func args))
 
@@ -159,11 +275,14 @@ Its element is a pair of `buffer-name' and `mode-line-format'.")
   (add-hook 'helm-exit-minibuffer-hook #'helm-ido-like-bottom-buffers-show-mode-line)
   (add-hook 'helm-cleanup-hook #'helm-ido-like-bottom-buffers-show-mode-line)
   (advice-add 'helm-keyboard-quit :around #'helm-ido-like-helm-keyboard-quit-advice))
-#+END_SRC
+</code></pre>
+</div>
 
+<p>
 If you like you can hide helms own mode-line as well:
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-  (defun helm-ido-like-hide-helm-modeline-1 ()
+</p>
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">  (defun helm-ido-like-hide-helm-modeline-1 ()
     "Hide mode line in `helm-buffer'."
     (with-helm-buffer
       (setq-local mode-line-format nil)))
@@ -172,16 +291,21 @@ If you like you can hide helms own mode-line as well:
   (defun helm-ido-like-hide-helm-modeline ()
     (fset 'helm-display-mode-line #'ignore)
     (add-hook 'helm-after-initialize-hook 'helm-ido-like-hide-helm-modeline-1))
-#+END_SRC
+</code></pre>
+</div>
 
 
+<p>
 The header lines for the sources are only useful if there are more then a single source.
 The following snippet will hide the header line if there is only one.
+</p>
 
-[[http://www.reddit.com/r/emacs/comments/2z7nbv/lean_helm_window/][Reference]]
+<p>
+<a href="http://www.reddit.com/r/emacs/comments/2z7nbv/lean_helm_window/">Reference</a>
+</p>
 
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">
 
 (defvar helm-ido-like-source-header-default-background nil)
 (defvar helm-ido-like-source-header-default-foreground nil)
@@ -189,7 +313,7 @@ The following snippet will hide the header line if there is only one.
 
 (defun helm-ido-like-toggle-header-line ()
   ;; Only Show Source Headers If More Than One
-  (if (> (length helm-sources) 1)
+  (if (&gt; (length helm-sources) 1)
       (set-face-attribute 'helm-source-header
                           nil
                           :foreground helm-ido-like-source-header-default-foreground
@@ -210,12 +334,15 @@ The following snippet will hide the header line if there is only one.
   (add-hook 'helm-before-initialize-hook 'helm-ido-like-toggle-header-line))
 
 
-#+END_SRC
+</code></pre>
+</div>
 
+<p>
 If you like you can change the background color of the helm-buffer.
+</p>
 
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-(defvar helm-ido-like-bg-color (face-attribute 'default :background))
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">(defvar helm-ido-like-bg-color (face-attribute 'default :background))
 
 (defun helm-ido-like-setup-bg-color-1 ()
   (with-helm-buffer
@@ -225,29 +352,39 @@ If you like you can change the background color of the helm-buffer.
 (defun helm-ido-like-setup-bg-color ()
   (add-hook 'helm-after-initialize-hook 'helm-ido-like-setup-bg-color-1))
 
-#+END_SRC
+</code></pre>
+</div>
+</div>
+</div>
 
 
-** File Navigation
-
+<div id="outline-container-org3fe1e5a" class="outline-3">
+<h3 id="org3fe1e5a">File Navigation</h3>
+<div class="outline-text-3" id="text-org3fe1e5a">
+<p>
 The following snippet will reconfigure the behaviour of keys in helm
 file navigation buffers.
+</p>
 
+<p>
 Backspace goes to the upper folder if you are not inside a filename,
 and Return will select a file or navigate into the directory if
 it is one.
+</p>
 
-[[http://emacs.stackexchange.com/a/7896/9198][Reference]]
+<p>
+<a href="http://emacs.stackexchange.com/a/7896/9198">Reference</a>
+</p>
 
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-  (defun helm-ido-like-find-files-up-one-level-maybe ()
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">  (defun helm-ido-like-find-files-up-one-level-maybe ()
     (interactive)
     (if (looking-back "/" 1)
         (call-interactively 'helm-find-files-up-one-level)
       (delete-char -1)))
 
 
-  (defun helm-ido-like-find-files-navigate-forward (orig-fun &rest args)
+  (defun helm-ido-like-find-files-navigate-forward (orig-fun &amp;rest args)
     "Adjust how helm-execute-persistent actions behaves, depending on context."
     (let ((sel (helm-get-selection)))
       (if (file-directory-p sel)
@@ -263,28 +400,33 @@ it is one.
 
   (defun helm-ido-like-load-file-nav ()
     (advice-add 'helm-execute-persistent-action :around #'helm-ido-like-find-files-navigate-forward)
-      ;; <return> is not bound in helm-map by default
-    (define-key helm-map (kbd "<return>") 'helm-maybe-exit-minibuffer)
+      ;; &lt;return&gt; is not bound in helm-map by default
+    (define-key helm-map (kbd "&lt;return&gt;") 'helm-maybe-exit-minibuffer)
     (with-eval-after-load 'helm-files
-      (define-key helm-read-file-map (kbd "<backspace>") 'helm-ido-like-find-files-up-one-level-maybe)
+      (define-key helm-read-file-map (kbd "&lt;backspace&gt;") 'helm-ido-like-find-files-up-one-level-maybe)
       (define-key helm-read-file-map (kbd "DEL") 'helm-ido-like-find-files-up-one-level-maybe)
-      (define-key helm-find-files-map (kbd "<backspace>") 'helm-ido-like-find-files-up-one-level-maybe)
+      (define-key helm-find-files-map (kbd "&lt;backspace&gt;") 'helm-ido-like-find-files-up-one-level-maybe)
       (define-key helm-find-files-map (kbd "DEL") 'helm-ido-like-find-files-up-one-level-maybe)
 
-      (define-key helm-find-files-map (kbd "<return>") 'helm-execute-persistent-action)
-      (define-key helm-read-file-map (kbd "<return>") 'helm-execute-persistent-action)
+      (define-key helm-find-files-map (kbd "&lt;return&gt;") 'helm-execute-persistent-action)
+      (define-key helm-read-file-map (kbd "&lt;return&gt;") 'helm-execute-persistent-action)
       (define-key helm-find-files-map (kbd "RET") 'helm-execute-persistent-action)
       (define-key helm-read-file-map (kbd "RET") 'helm-execute-persistent-action)))
 
 
-#+END_SRC
+</code></pre>
+</div>
 
+<p>
 And this snippet will remove the dots in helm file navigation
+</p>
 
-[[https://github.com/TheBB/spacemacs-layers/tree/master/no-dots][Reference]]
+<p>
+<a href="https://github.com/TheBB/spacemacs-layers/tree/master/no-dots">Reference</a>
+</p>
 
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">
 (defvar helm-ido-like-no-dots-whitelist
   '("*Helm file completions*")
   "List of helm buffers in which to show dot directories.")
@@ -297,7 +439,7 @@ And this snippet will remove the dots in helm file navigation
       (not (string-match "\\(?:/\\|\\`\\)\\.\\{1,2\\}\\'" file))))
 
 
-(defun helm-ido-like-no-dots-auto-add (&rest args)
+(defun helm-ido-like-no-dots-auto-add (&amp;rest args)
   "Auto add buffers which want to read directory names to the whitelist."
   (if (eq (car (last args)) 'file-directory-p)
       (add-to-list 'helm-ido-like-no-dots-whitelist
@@ -311,20 +453,28 @@ And this snippet will remove the dots in helm file navigation
   (advice-add 'helm-ff-filter-candidate-one-by-one
               :before-while 'helm-ido-like-no-dots-display-file-p)
   (advice-add  'helm--generic-read-file-name :before 'helm-ido-like-no-dots-auto-add))
-#+END_SRC
+</code></pre>
+</div>
+</div>
+</div>
 
-** Improve Flx support
-
+<div id="outline-container-org67dd1f2" class="outline-3">
+<h3 id="org67dd1f2">Improve Flx support</h3>
+<div class="outline-text-3" id="text-org67dd1f2">
+<p>
 And you can increase flx speed (I have not benchmarked it myself) by adjusting
 the garbage collection setting. In addition to that the following snippet
 advices the helm source function to enable the flx fuzzy match in most sources
 but file completions(you still have fuzzy matching from helm) and async sources.
+</p>
 
-[[http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/][Reference]]
-[[https://github.com/emacs-helm/helm/issues/145#issuecomment-151953381][Reference]]
+<p>
+<a href="http://bling.github.io/blog/2016/01/18/why-are-you-changing-gc-cons-threshold/">Reference</a>
+<a href="https://github.com/emacs-helm/helm/issues/145#issuecomment-151953381">Reference</a>
+</p>
 
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-(defvar helm-ido-like-user-gc-setting nil)
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">(defvar helm-ido-like-user-gc-setting nil)
 
 (defun helm-ido-like-higher-gc ()
   (setq helm-ido-like-user-gc-setting gc-cons-threshold)
@@ -334,7 +484,7 @@ but file completions(you still have fuzzy matching from helm) and async sources.
 (defun helm-ido-like-lower-gc ()
   (setq gc-cons-threshold helm-ido-like-user-gc-setting))
 
-(defun helm-ido-like-helm-make-source (f &rest args)
+(defun helm-ido-like-helm-make-source (f &amp;rest args)
   (let ((source-type (cadr args)))
     (unless (or (memq source-type '(helm-source-async helm-source-ffiles))
                 (eq (plist-get args :filtered-candidate-transformer)
@@ -350,18 +500,21 @@ but file completions(you still have fuzzy matching from helm) and async sources.
   (advice-add 'helm-make-source :around 'helm-ido-like-helm-make-source))
 
 
-#+END_SRC
+</code></pre>
+</div>
 
+<p>
 With recent helm version there is a problem for file navigation, when
 helm-fuzzier is activated. Because of that it's better to deactivate it
 for file completions
+</p>
 
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-(defun helm-ido-like-fuzzier-deactivate (&rest _)
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">(defun helm-ido-like-fuzzier-deactivate (&amp;rest _)
   (helm-fuzzier-mode -1))
 
 
-(defun helm-ido-like-fuzzier-activate (&rest _)
+(defun helm-ido-like-fuzzier-activate (&amp;rest _)
   (unless helm-fuzzier-mode
     (helm-fuzzier-mode 1)))
 
@@ -372,22 +525,34 @@ for file completions
   (add-hook 'helm-exit-minibuffer-hook #'helm-ido-like-fuzzier-activate)
   (add-hook 'helm-cleanup-hook #'helm-ido-like-fuzzier-activate)
   (advice-add 'helm-keyboard-quit :before #'helm-ido-like-fuzzier-activate))
-#+END_SRC
+</code></pre>
+</div>
+</div>
+</div>
 
-** Helm Adaptive
-
+<div id="outline-container-org10b5dbe" class="outline-3">
+<h3 id="org10b5dbe">Helm Adaptive</h3>
+<div class="outline-text-3" id="text-org10b5dbe">
+<p>
 This will offer last choosen candidates first for more sources, with support for flx.
+</p>
 
-I only use it to remember =describe-function= and =describe-variable=, if you want
+<p>
+I only use it to remember <code>describe-function</code> and <code>describe-variable</code>, if you want
 to use it for other sources add them like shown below.
+</p>
 
+<p>
 Warning: After some usage it stopped working correctly and sorted the results badly.
 I can live without it, but maybe I will try to fix it later.
+</p>
 
-[[https://github.com/emacs-helm/helm/issues/1228][Reference]]
+<p>
+<a href="https://github.com/emacs-helm/helm/issues/1228">Reference</a>
+</p>
 
-#+BEGIN_SRC emacs-lisp
-(with-eval-after-load 'helm-adaptive
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">(with-eval-after-load 'helm-adaptive
   (defcustom helm-adaptive-enabled-sources  '()
     "List of Helm Source names for which helm-adaptive will remember history."
     :type '(repeat string)
@@ -398,7 +563,7 @@ I can live without it, but maybe I will try to fix it later.
   (add-to-list 'helm-adaptive-enabled-sources "describe-variable")
 
   ;; Clobber helm's implementation
-(defun helm-adapt-use-adaptive-p (&optional source-name)
+(defun helm-adapt-use-adaptive-p (&amp;optional source-name)
   "Return current source only if it use adaptive history, nil otherwise."
   (when helm-adaptive-mode
     (let* ((source (or source-name (helm-get-current-source)))
@@ -421,24 +586,30 @@ I can live without it, but maybe I will try to fix it later.
 
   (require 'dash)
   (setq helm-fuzzy-sort-fn
-        (lambda (candidates source &optional use-real)
+        (lambda (candidates source &amp;optional use-real)
 
-          (-> candidates
+          (-&gt; candidates
               (helm-flx-fuzzy-matching-sort source use-real)
               (helm-adaptive-sort source)
               ))
         helm-fuzzy-matching-highlight-fn #'helm-flx-fuzzy-highlight-match))
 
 (helm-adaptive-mode 1)
-#+END_SRC
+</code></pre>
+</div>
+</div>
+</div>
 
-** Last Steps
-
+<div id="outline-container-orgf3f9103" class="outline-3">
+<h3 id="orgf3f9103">Last Steps</h3>
+<div class="outline-text-3" id="text-orgf3f9103">
+<p>
 If you want to load all configurations from this guide
-require the file in your init and call =(helm-ido-like)=.
+require the file in your init and call <code>(helm-ido-like)</code>.
+</p>
 
-#+BEGIN_SRC emacs-lisp :tangle helm-ido-like.el
-;;;###autoload
+<div class="org-src-container">
+<pre><code class="language-lisp match-braces rainbow-braces">;;;###autoload
 (defun helm-ido-like ()
   "Configure and activate `helm', `helm-fuzzier' and `helm-flx'."
   (interactive)
@@ -455,4 +626,16 @@ require the file in your init and call =(helm-ido-like)=.
 
 (provide 'helm-ido-like)
 ;;; helm-ido-like.el ends here
-#+END_SRC
+</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jeet Ray</p>
+<p class="date">Created: 2022-11-14 Mon 09:57</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
