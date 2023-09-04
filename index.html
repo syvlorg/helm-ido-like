@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-09-04 Mon 12:27 -->
+<!-- 2023-09-04 Mon 14:02 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -31,27 +31,27 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org591de3c">Helm I do like. Yes&#x2026;</a>
+<li><a href="#orgbf46c82">Helm I do like. Yes&#x2026;</a>
 <ul>
-<li><a href="#org94085df">Screenshots</a></li>
-<li><a href="#org055777b">Installing helm and friends</a></li>
-<li><a href="#org373dd5e">Initial setup</a></li>
-<li><a href="#orge648ba9">Appearance</a></li>
-<li><a href="#orge8e5a1e">File Navigation</a></li>
-<li><a href="#org85aaf76">Improve Flx support</a></li>
-<li><a href="#org24d2382">Helm Adaptive</a></li>
-<li><a href="#orgef138ef">Last Steps</a></li>
+<li><a href="#org5eb65a9">Screenshots</a></li>
+<li><a href="#orgde9784d">Installing helm and friends</a></li>
+<li><a href="#org32390b1">Initial setup</a></li>
+<li><a href="#org7e05978">Appearance</a></li>
+<li><a href="#org017f064">File Navigation</a></li>
+<li><a href="#org1e60a02">Improve Flx support</a></li>
+<li><a href="#org00ee0f8">Helm Adaptive</a></li>
+<li><a href="#org95542f9">Last Steps</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org591de3c" class="outline-2">
-<h2 id="org591de3c">Helm I do like. Yes&#x2026;</h2>
-<div class="outline-text-2" id="text-org591de3c">
+<div id="outline-container-orgbf46c82" class="outline-2">
+<h2 id="orgbf46c82">Helm I do like. Yes&#x2026;</h2>
+<div class="outline-text-2" id="text-orgbf46c82">
 
-<div id="org61ebdda" class="figure">
+<div id="org6b6bca7" class="figure">
 <p><img src="./yoda.jpg" alt="yoda.jpg" />
 </p>
 </div>
@@ -97,9 +97,9 @@ the guide into parts where each snippet should be independent of others, so you 
 </p>
 </div>
 
-<div id="outline-container-org94085df" class="outline-3">
-<h3 id="org94085df">Screenshots</h3>
-<div class="outline-text-3" id="text-org94085df">
+<div id="outline-container-org5eb65a9" class="outline-3">
+<h3 id="org5eb65a9">Screenshots</h3>
+<div class="outline-text-3" id="text-org5eb65a9">
 <p>
 <img src="./screenshot.png" alt="screenshot.png" />
 Theme: <a href="https://github.com/edran/hc-zenburn-emacs">hc-zenburn</a> with some adjustments.
@@ -107,9 +107,9 @@ Theme: <a href="https://github.com/edran/hc-zenburn-emacs">hc-zenburn</a> with s
 </div>
 </div>
 
-<div id="outline-container-org055777b" class="outline-3">
-<h3 id="org055777b">Installing helm and friends</h3>
-<div class="outline-text-3" id="text-org055777b">
+<div id="outline-container-orgde9784d" class="outline-3">
+<h3 id="orgde9784d">Installing helm and friends</h3>
+<div class="outline-text-3" id="text-orgde9784d">
 <p>
 If you haven't already go and install helm, helm-swoop, helm-flx, helm-fuzzier, smex and helm-smex. You can do it
 quickly by evaluating the following snippet.
@@ -129,15 +129,15 @@ quickly by evaluating the following snippet.
 
 
 <p>
-Now either follow this guide or jump to <a href="#orgef138ef">Last Steps</a> if you want see how to activate
+Now either follow this guide or jump to <a href="#org95542f9">Last Steps</a> if you want see how to activate
 all the snippets provided by this guide at once.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org373dd5e" class="outline-3">
-<h3 id="org373dd5e">Initial setup</h3>
-<div class="outline-text-3" id="text-org373dd5e">
+<div id="outline-container-org32390b1" class="outline-3">
+<h3 id="org32390b1">Initial setup</h3>
+<div class="outline-text-3" id="text-org32390b1">
 <div class="org-src-container">
 <pre><code class="language-lisp match-braces rainbow-braces">(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">helm-ido-like-activate-helm-modes</span> ()
   (<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">helm-config</span>)
@@ -158,9 +158,9 @@ Now don't forget to bind keys for the helm-smex commands:
 </div>
 </div>
 
-<div id="outline-container-orge648ba9" class="outline-3">
-<h3 id="orge648ba9">Appearance</h3>
-<div class="outline-text-3" id="text-orge648ba9">
+<div id="outline-container-org7e05978" class="outline-3">
+<h3 id="org7e05978">Appearance</h3>
+<div class="outline-text-3" id="text-org7e05978">
 <p>
 The following snippet will configure helm to always pop up at the bottom.
 </p>
@@ -336,9 +336,9 @@ If you like you can change the background color of the helm-buffer.
 </div>
 
 
-<div id="outline-container-orge8e5a1e" class="outline-3">
-<h3 id="orge8e5a1e">File Navigation</h3>
-<div class="outline-text-3" id="text-orge8e5a1e">
+<div id="outline-container-org017f064" class="outline-3">
+<h3 id="org017f064">File Navigation</h3>
+<div class="outline-text-3" id="text-org017f064">
 <p>
 The following snippet will reconfigure the behaviour of keys in helm
 file navigation buffers.
@@ -436,9 +436,9 @@ And this snippet will remove the dots in helm file navigation
 </div>
 </div>
 
-<div id="outline-container-org85aaf76" class="outline-3">
-<h3 id="org85aaf76">Improve Flx support</h3>
-<div class="outline-text-3" id="text-org85aaf76">
+<div id="outline-container-org1e60a02" class="outline-3">
+<h3 id="org1e60a02">Improve Flx support</h3>
+<div class="outline-text-3" id="text-org1e60a02">
 <p>
 And you can increase flx speed (I have not benchmarked it myself) by adjusting
 the garbage collection setting. In addition to that the following snippet
@@ -508,9 +508,9 @@ for file completions
 </div>
 </div>
 
-<div id="outline-container-org24d2382" class="outline-3">
-<h3 id="org24d2382">Helm Adaptive</h3>
-<div class="outline-text-3" id="text-org24d2382">
+<div id="outline-container-org00ee0f8" class="outline-3">
+<h3 id="org00ee0f8">Helm Adaptive</h3>
+<div class="outline-text-3" id="text-org00ee0f8">
 <p>
 This will offer last choosen candidates first for more sources, with support for flx.
 </p>
@@ -578,9 +578,9 @@ I can live without it, but maybe I will try to fix it later.
 </div>
 </div>
 
-<div id="outline-container-orgef138ef" class="outline-3">
-<h3 id="orgef138ef">Last Steps</h3>
-<div class="outline-text-3" id="text-orgef138ef">
+<div id="outline-container-org95542f9" class="outline-3">
+<h3 id="org95542f9">Last Steps</h3>
+<div class="outline-text-3" id="text-org95542f9">
 <p>
 If you want to load all configurations from this guide
 require the file in your init and call <code>(helm-ido-like)</code>.
@@ -612,7 +612,7 @@ require the file in your init and call <code>(helm-ido-like)</code>.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jeet Ray</p>
-<p class="date">Created: 2023-09-04 Mon 12:27</p>
+<p class="date">Created: 2023-09-04 Mon 14:02</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
